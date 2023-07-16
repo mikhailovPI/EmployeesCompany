@@ -1,14 +1,18 @@
 package ru.mikhailov.employeescompany.dto;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import org.springframework.format.annotation.DateTimeFormat;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import ru.mikhailov.employeescompany.model.Role;
 
-import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserDto {
 
     Long id;

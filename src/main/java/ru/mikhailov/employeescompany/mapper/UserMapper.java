@@ -5,7 +5,12 @@ import ru.mikhailov.employeescompany.model.User;
 
 public class UserMapper {
 
-    public static User toUser (UserDto userDto) {
+    public static User toUser(UserDto userDto) {
         return new User();
     }
+
+    public static UserDto toUserDto(User user) {
+        return new UserDto();
+    }
+
 }

@@ -18,6 +18,7 @@ import java.util.Set;
 
 import static ru.mikhailov.employeescompany.config.Validation.validationBodyUser;
 import static ru.mikhailov.employeescompany.mapper.UserMapper.toUser;
+import static ru.mikhailov.employeescompany.mapper.UserMapper.toUserDto;
 
 
 @Service
@@ -42,6 +43,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public UserDto createUser(UserDto userDto) {
         validationBodyUser(toUser(userDto));
         User user = toUser(userDto);
@@ -50,7 +52,6 @@ public class UserServiceImpl implements UserService {
                 .noneMatch(email -> email.equals(userDto.getEmail()))) {
             Set<Role> roles = new HashSet<>();
             Set<Role> roleUserDto = userDto.getUserRole();
-
             if (roleRepository.findAll().isEmpty()) {
                 user.setUserRole(roleUserDto);
                 user.setPassword(passwordEncoder.encode(userDto.getPassword()));
@@ -82,6 +83,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void deleteUserById(Long userId) {
-
+        userRepository.deleteById(userId);
     }
 }
