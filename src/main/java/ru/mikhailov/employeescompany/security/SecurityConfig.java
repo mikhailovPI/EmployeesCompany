@@ -11,12 +11,10 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-import ru.mikhailov.claimregistrar.user.model.UserRole;
+import ru.mikhailov.employeescompany.model.UserRole;
 
-import static ru.mikhailov.claimregistrar.request.controller.RequestAdminController.URL_ADMIN;
-import static ru.mikhailov.claimregistrar.request.controller.RequestExecutorController.URL_EXECUTOR;
-import static ru.mikhailov.claimregistrar.request.controller.RequestOperatorController.URL_OPERATOR;
-import static ru.mikhailov.claimregistrar.request.controller.RequestUserController.URL_USER;
+import static ru.mikhailov.employeescompany.controller.UserController.ADMIN_URL;
+import static ru.mikhailov.employeescompany.controller.UserController.USER_URL;
 
 @Configuration
 @EnableWebSecurity
@@ -30,27 +28,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .csrf()
-                    .disable()
+                .disable()
                 .authorizeRequests()
-                    .antMatchers(URL_ADMIN + "/**")
-                        .hasAuthority(String.valueOf(UserRole.ADMIN))
-                    .antMatchers(URL_OPERATOR + "/**")
-                        .hasAnyAuthority(String.valueOf(UserRole.OPERATOR)
-                                , String.valueOf(UserRole.ADMIN))
-                    .antMatchers(URL_USER + "/**")
-                        .hasAuthority(String.valueOf(UserRole.USER))
-                    .antMatchers(URL_EXECUTOR + "/**")
-                        .hasAuthority(String.valueOf(UserRole.EXECUTOR))
-                    .antMatchers("/registration/user").permitAll()
+                .antMatchers(ADMIN_URL + "/**")
+                .hasAuthority(String.valueOf(UserRole.ADMIN))
+                .antMatchers(USER_URL + "/**")
+                .hasAuthority(String.valueOf(UserRole.USER))
+                .antMatchers("/registration/user").permitAll()
                 .and()
-                    .formLogin()
-                        .loginPage("/auth/login").permitAll()
+                .formLogin()
+                .loginPage("/auth/login").permitAll()
                 .and()
-                    .logout()
-                        .logoutRequestMatcher(new AntPathRequestMatcher("/logout", "POST"))
-                        .deleteCookies("JSESSIONID")
-                        .invalidateHttpSession(true)
-                        .clearAuthentication(true);
+                .logout()
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout", "POST"))
+                .deleteCookies("JSESSIONID")
+                .invalidateHttpSession(true)
+                .clearAuthentication(true);
     }
 
     @Bean
