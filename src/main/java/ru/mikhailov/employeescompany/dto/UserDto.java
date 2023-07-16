@@ -1,4 +1,4 @@
 package ru.mikhailov.employeescompany.dto;
 
-public class EmployeeDto {
+public class UserDto {
 }
