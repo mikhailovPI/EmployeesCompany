@@ -1,0 +1,473 @@
+{
+	"info": {
+		"_postman_id": "42b5dd59-1dbd-4817-9b96-ee2a49c36f22",
+		"name": "EmployeeCompany",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "21599406",
+		"_collection_link": "https://universal-rocket-498870.postman.co/workspace/Team-Workspace~075702bc-79a9-424e-8188-284e8c4fdb15/collection/21599406-42b5dd59-1dbd-4817-9b96-ee2a49c36f22?action=share&creator=21599406&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "Создание пользователя 1 user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status test\", function () {\r",
+									"pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "dsds",
+								"username": "dsds"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"lastName\": \"Ivanova\",\r\n  \"firstName\": \"Tatiana\",\r\n  \"patronymic\": \"Petrovna\",\r\n  \"birthdate\" : \"12 декабря 1990\",\r\n  \"email\": \"1111@mail.ru\",\r\n  \"password\": \"1111\",\r\n  \"phoneNumber\": \"5555\",\r\n  \"userRole\": [\r\n      {\r\n          \"name\": \"USER\"\r\n      }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{admin_url}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Создание пользователя 2 user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status test\", function () {\r",
+									"pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "dsds",
+								"username": "dsds"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"lastName\": \"Petrov\",\r\n  \"firstName\": \"Ivan\",\r\n  \"patronymic\": \"Dmitrievich\",\r\n  \"birthdate\" : \"15 мая 1980\",\r\n  \"email\": \"2222@mail.ru\",\r\n  \"password\": \"2222\",\r\n  \"phoneNumber\": \"1523\",\r\n  \"userRole\": [\r\n      {\r\n          \"name\": \"USER\"\r\n      }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{admin_url}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Создание пользователя 3 admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status test\", function () {\r",
+									"pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "dsds",
+								"username": "dsds"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"lastName\": \"Smirnov\",\r\n  \"firstName\": \"Pavel\",\r\n  \"patronymic\": \"Pavlivich\",\r\n  \"birthdate\" : \"05 ноября 1999\",\r\n  \"email\": \"3333@mail.ru\",\r\n  \"password\": \"3333\",\r\n  \"phoneNumber\": \"85123\",\r\n  \"userRole\": [\r\n      {\r\n          \"name\": \"ADMIN\"\r\n      }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{admin_url}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Создание пользователя 4 user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status test\", function () {\r",
+									"pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "dsds",
+								"username": "dsds"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"lastName\": \"Petrov\",\r\n  \"firstName\": \"Ivan\",\r\n  \"patronymic\": \"Andreevich\",\r\n  \"birthdate\" : \"25 марта 1982\",\r\n  \"email\": \"4444@mail.ru\",\r\n  \"password\": \"4444\",\r\n  \"phoneNumber\": \"85247\",\r\n  \"userRole\": [\r\n      {\r\n          \"name\": \"USER\"\r\n      }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{admin_url}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Создание пользователя 5 user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status test\", function () {\r",
+									"pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "dsds",
+								"username": "dsds"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"lastName\": \"Petrov\",\r\n  \"firstName\": \"Ivan\",\r\n  \"birthdate\" : \"15 января 2000\",\r\n  \"email\": \"5555@mail.ru\",\r\n  \"password\": \"5555\",\r\n  \"phoneNumber\": \"85247\",\r\n  \"userRole\": [\r\n      {\r\n          \"name\": \"USER\"\r\n      }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{admin_url}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Получение всех пользователей для ADMIN",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status test\", function () {\r",
+									"pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{admin_url}}/:userId?from=0&size=5",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								":userId"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "5"
+								}
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Обновление пользователя 5",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status test\", function () {\r",
+									"pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "dsds",
+								"username": "dsds"
+							}
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"lastName\": \"Petrov\",\r\n  \"firstName\": \"Ioan\",\r\n  \"patronymic\": \"Nikolaevich\",\r\n  \"birthdate\" : \"15 января 2000\",\r\n  \"email\": \"5555@mail.ru\",\r\n  \"password\": \"5555\",\r\n  \"phoneNumber\": \"85247\",\r\n  \"userRole\": [\r\n      {\r\n          \"name\": \"USER\"\r\n      }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{admin_url}}/:adminId",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								":adminId"
+							],
+							"variable": [
+								{
+									"key": "adminId",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Обновление пользователя 5 все поля",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status test\", function () {\r",
+									"pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "dsds",
+								"username": "dsds"
+							}
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"lastName\": \"Babuk\",\r\n  \"firstName\": \"Valeryi\",\r\n  \"patronymic\": \"Alexsandrovich\",\r\n  \"birthdate\" : \"01 января 1999\",\r\n  \"email\": \"5555@mail.ru\",\r\n  \"password\": \"6666\",\r\n  \"phoneNumber\": \"523258\",\r\n  \"userRole\": [\r\n      {\r\n          \"name\": \"USER\"\r\n      }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{admin_url}}/:adminId",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								":adminId"
+							],
+							"variable": [
+								{
+									"key": "adminId",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получение всех пользователей для USER",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status test\", function () {\r",
+									"pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{user_url}}/:userId?from=0&size=5",
+							"host": [
+								"{{user_url}}"
+							],
+							"path": [
+								":userId"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "5"
+								}
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание пользователя 5 admin Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status test\", function () {\r",
+									"pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "dsds",
+								"username": "dsds"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"lastName\": \"Petrov\",\r\n  \"firstName\": \"Ivan\",\r\n  \"birthdate\" : \"1980-12-05\",\r\n  \"email\": \"5555@mail.ru\",\r\n  \"password\": \"5555\",\r\n  \"phoneNumber\": \"85247\",\r\n  \"userRole\": [\r\n      {\r\n          \"name\": \"USER\"\r\n      }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{admin_url}}/:adminId/:deleteUserId",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								":adminId",
+								":deleteUserId"
+							],
+							"variable": [
+								{
+									"key": "adminId",
+									"value": "3"
+								},
+								{
+									"key": "deleteUserId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "exception",
+			"item": []
+		}
+	]
+}
