@@ -18,9 +18,6 @@ public class Validation {
         if (user.getFirstName() == null) {
             throw new ValidationException("Фамилия не должна быть пустой.");
         }
-        if (user.getPatronymic() == null) {
-            throw new ValidationException("Отчество не должно быть пустым.");
-        }
         if (user.getPhoneNumber() == null) {
             throw new ValidationException("Номер телефона не должен быть пустым.");
         }

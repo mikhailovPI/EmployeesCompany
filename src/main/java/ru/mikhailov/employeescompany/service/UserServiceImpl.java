@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.mikhailov.employeescompany.config.PageRequestOverride;
 import ru.mikhailov.employeescompany.dto.UserDto;
+import ru.mikhailov.employeescompany.dto.UserGetDto;
 import ru.mikhailov.employeescompany.exception.ConflictingRequestException;
 import ru.mikhailov.employeescompany.exception.NotFoundException;
 import ru.mikhailov.employeescompany.mapper.UserMapper;
@@ -38,13 +39,13 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public List<UserDto> getAllUsers(Long userId, int from, int size) {
+    public List<UserGetDto> getAllUsers(Long userId, int from, int size) {
         User user = validationUser(userId);
         adminRole(user);
         PageRequestOverride pageRequest = PageRequestOverride.of(from, size);
         return userRepository.findAll(pageRequest)
                 .stream()
-                .map(UserMapper::toUserDto)
+                .map(UserMapper::toUserGetDto)
                 .collect(Collectors.toList());
     }
 
@@ -118,7 +119,6 @@ public class UserServiceImpl implements UserService {
         return toUserDto(userSave);
     }
 
-
     @Override
     public void deleteUserById(Long userId, Long deleteUserId) {
         User user = validationUser(userId);
@@ -153,5 +153,4 @@ public class UserServiceImpl implements UserService {
                                     UserRole.USER));
                 });
     }
-
 }

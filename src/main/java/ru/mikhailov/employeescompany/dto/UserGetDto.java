@@ -5,14 +5,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import ru.mikhailov.employeescompany.model.Role;
 
-import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserDto {
+public class UserGetDto {
 
     Long id;
 
@@ -26,8 +25,6 @@ public class UserDto {
     String birthdate;
 
     String email;
-
-    String password;
 
     String phoneNumber;
 

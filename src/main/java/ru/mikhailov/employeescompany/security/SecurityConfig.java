@@ -28,22 +28,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .csrf()
-                .disable()
-                .authorizeRequests()
-                .antMatchers(ADMIN_URL + "/**")
-                .hasAuthority(String.valueOf(UserRole.ADMIN))
-                .antMatchers(USER_URL + "/**")
-                .hasAuthority(String.valueOf(UserRole.USER))
-                .antMatchers("/registration/user").permitAll()
-                .and()
-                .formLogin()
-                .loginPage("/auth/login").permitAll()
-                .and()
-                .logout()
-                .logoutRequestMatcher(new AntPathRequestMatcher("/logout", "POST"))
-                .deleteCookies("JSESSIONID")
-                .invalidateHttpSession(true)
-                .clearAuthentication(true);
+                .disable();
+//                .authorizeRequests()
+                //.antMatchers(ADMIN_URL + "/**")
+                //.hasAuthority(String.valueOf(UserRole.ADMIN))
+                //.antMatchers(USER_URL + "/**")
+                //.hasAuthority(String.valueOf(UserRole.USER))
+                //.and()
+                //.formLogin()
+                //.loginPage("/auth/login").permitAll()
+                //.and()
+                //.logout()
+                //.logoutRequestMatcher(new AntPathRequestMatcher("/logout", "POST"))
+                //.deleteCookies("JSESSIONID")
+                //.invalidateHttpSession(true)
+                //.clearAuthentication(true);
     }
 
     @Bean
