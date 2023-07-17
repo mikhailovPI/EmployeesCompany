@@ -32,15 +32,14 @@
 - Запустить Postman на [localhost:8080](http://localhost:8080);
 - Запустить коллекцию
   [тестов](
-  https://github.com/mikhailovPI/Claim-registrar/blob/main/ClaimRegistrar/info/ClaimRegistrar.postman_collection.json)
+  https://github.com/mikhailovPI/EmployeesCompany/blob/master/info/EmployeeCompany.postman_collection.json)
   в Postman;
 
 ***Схема базы данных:***
-> ![schema_database.png](ClaimRegistrar/info/schema_database.PNG)
+> ![schema_db.PNG](EmployeesCompany/blob/master/info/schema_db.PNG)
 >
 ***Данные для тестирования в Postman:***
-[tests](
-https://github.com/mikhailovPI/Claim-registrar/blob/main/ClaimRegistrar/info/ClaimRegistrar.postman_collection.json)
+[tests](https://github.com/mikhailovPI/EmployeesCompany/blob/master/info/EmployeeCompany.postman_collection.json)
 
 
 
