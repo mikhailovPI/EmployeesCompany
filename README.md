@@ -36,7 +36,7 @@
   в Postman;
 
 ***Схема базы данных:***
-> ![schema_db.PNG](EmployeesCompany\info\schema_db.PNG)
+> ![schema_db.png](info/schema_db.PNG)
 >
 ***Данные для тестирования в Postman:***
 [tests](https://github.com/mikhailovPI/EmployeesCompany/blob/master/info/EmployeeCompany.postman_collection.json)
