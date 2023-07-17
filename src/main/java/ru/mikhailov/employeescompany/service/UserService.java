@@ -14,7 +14,7 @@ public interface UserService {
 
     UserDto createUser(UserDto userDto) throws ConflictingRequestException;
 
-    UserDto updateUser(UserDto userDto);
+    UserDto updateUser(Long adminId, UserDto userDto);
 
     void deleteUserById(Long userId, Long deleteUserId);
 }

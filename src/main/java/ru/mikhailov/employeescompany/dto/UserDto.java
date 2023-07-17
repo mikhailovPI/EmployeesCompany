@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import ru.mikhailov.employeescompany.model.Role;
 
-import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -22,7 +21,6 @@ public class UserDto {
 
     String patronymic;
 
-    //LocalDate birthdate;
     String birthdate;
 
     String email;

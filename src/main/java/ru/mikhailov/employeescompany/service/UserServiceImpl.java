@@ -65,6 +65,9 @@ public class UserServiceImpl implements UserService {
                 .noneMatch(email -> email.equals(userDto.getEmail()))) {
             Set<Role> roles = new HashSet<>();
             Set<Role> roleUserDto = userDto.getUserRole();
+            if (user.getPatronymic() == null) {
+                user.setPatronymic("");
+            }
             if (roleRepository.findAll().isEmpty()) {
                 user.setUserRole(roleUserDto);
                 user.setPassword(passwordEncoder.encode(userDto.getPassword()));
@@ -91,16 +94,17 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public UserDto updateUser(UserDto userDto) {
-        User user = validationUser(userDto.getId());
-        adminRole(user);
+    public UserDto updateUser(Long adminId, UserDto userDto) {
+        User user = userRepository.findOrdersByUserEmailPart(userDto.getEmail());
+        User admin = validationUser(adminId);
+        adminRole(admin);
         if (!user.getLastName().equals(userDto.getLastName())) {
             user.setLastName(userDto.getLastName());
         }
         if (!user.getFirstName().equals(userDto.getFirstName())) {
             user.setFirstName(userDto.getFirstName());
         }
-        if (!user.getPatronymic().equals(userDto.getPatronymic())) {
+        if (!user.getPatronymic().equals(userDto.getPatronymic()) || user.getPatronymic().isEmpty()) {
             user.setPatronymic(userDto.getPatronymic());
         }
         if (!user.getBirthdate().equals(userDto.getBirthdate())) {
@@ -110,7 +114,7 @@ public class UserServiceImpl implements UserService {
             user.setEmail(userDto.getEmail());
         }
         if (!user.getPassword().equals(userDto.getPassword())) {
-            user.setPassword(userDto.getPassword());
+            user.setPassword(passwordEncoder.encode(userDto.getPassword()));
         }
         if (!user.getPhoneNumber().equals(userDto.getPhoneNumber())) {
             user.setPhoneNumber(userDto.getPhoneNumber());

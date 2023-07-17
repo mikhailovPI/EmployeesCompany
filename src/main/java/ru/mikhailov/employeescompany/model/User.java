@@ -46,12 +46,8 @@ public class User {
     @Column(name = USER_PATRONYMIC)
     String patronymic;
 
-    //посмотреть аннотацию для dateTime
     @Column(name = USER_BIRTHDATE)
-//    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss", iso = DateTimeFormat.ISO.DATE_TIME)
-//    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
-//    LocalDate birthdate;
-            String birthdate;
+    String birthdate;
 
     @Column(name = USER_EMAIL)
     String email;

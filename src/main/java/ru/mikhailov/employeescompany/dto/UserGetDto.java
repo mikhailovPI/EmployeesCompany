@@ -21,7 +21,6 @@ public class UserGetDto {
 
     String patronymic;
 
-    //LocalDate birthdate;
     String birthdate;
 
     String email;

@@ -39,10 +39,12 @@ public class UserController {
         return userService.createUser(userDto);
     }
 
-    @PatchMapping(path = ADMIN_URL)
-    public UserDto updateUser(@RequestBody UserDto userDto) {
+    @PatchMapping(path = ADMIN_URL+ "/{adminId}")
+    public UserDto updateUser(
+            @RequestBody UserDto userDto,
+            @PathVariable Long adminId) {
         log.info("URL: /user/admin. PatchMapping/Обновление пользователя/updateUser");
-        return userService.updateUser(userDto);
+        return userService.updateUser(adminId, userDto);
     }
 
     @DeleteMapping(path = ADMIN_URL + "/{userId}/{deleteUserId}")
