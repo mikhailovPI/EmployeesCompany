@@ -2,7 +2,6 @@ package ru.mikhailov.employeescompany.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import ru.mikhailov.employeescompany.dto.UserDto;
 import ru.mikhailov.employeescompany.service.UserService;
@@ -19,15 +18,13 @@ public class UserController {
 
     private final UserService userService;
 
-//    @Autowired
-//    public UserController(UserService userService) {
-//        this.userService = userService;
-//    }
-
-    @GetMapping(path = ADMIN_URL)
-    public List<UserDto> getAllUsers() {
+    @GetMapping(path = ADMIN_URL + "/{userId}")
+    public List<UserDto> getAllUsers(
+            @PathVariable Long userId,
+            @RequestParam(name = "from", defaultValue = "0") int from,
+            @RequestParam(name = "size", defaultValue = "10") int size) {
         log.info("URL: /user/admin. GetMapping/Получение всех пользователей/getAllUsers");
-        return userService.getAllUsers();
+        return userService.getAllUsers(userId, from, size);
     }
 
     @GetMapping(path = USER_URL + "/{userId}")
@@ -47,8 +44,10 @@ public class UserController {
         return userService.updateUser(userDto);
     }
 
-    @DeleteMapping(path = ADMIN_URL + "/{userId}")
-    public void deleteUserById(@PathVariable Long userId) {
-        userService.deleteUserById(userId);
+    @DeleteMapping(path = ADMIN_URL + "/{userId}/{deleteUserId}")
+    public void deleteUserById(
+            @PathVariable Long userId,
+            @PathVariable Long deleteUserId) {
+        userService.deleteUserById(userId, deleteUserId);
     }
 }
