@@ -34,7 +34,7 @@ public class UserMapper {
         );
     }
 
-    public static UserGetDto toUserGetDto (User user) {
+    public static UserGetDto toUserGetDto(User user) {
         return new UserGetDto(
                 user.getId(),
                 user.getLastName(),
@@ -42,8 +42,7 @@ public class UserMapper {
                 user.getPatronymic(),
                 user.getBirthdate(),
                 user.getEmail(),
-                user.getPhoneNumber(),
-                user.getUserRole()
+                user.getPhoneNumber()
         );
     }
 }
