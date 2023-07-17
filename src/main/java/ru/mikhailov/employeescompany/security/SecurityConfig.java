@@ -10,7 +10,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import ru.mikhailov.employeescompany.model.UserRole;
 
 import static ru.mikhailov.employeescompany.controller.UserController.ADMIN_URL;
@@ -28,21 +27,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .csrf()
-                .disable();
-//                .authorizeRequests()
-                //.antMatchers(ADMIN_URL + "/**")
-                //.hasAuthority(String.valueOf(UserRole.ADMIN))
-                //.antMatchers(USER_URL + "/**")
-                //.hasAuthority(String.valueOf(UserRole.USER))
-                //.and()
-                //.formLogin()
-                //.loginPage("/auth/login").permitAll()
-                //.and()
-                //.logout()
-                //.logoutRequestMatcher(new AntPathRequestMatcher("/logout", "POST"))
-                //.deleteCookies("JSESSIONID")
-                //.invalidateHttpSession(true)
-                //.clearAuthentication(true);
+                .disable()
+                .authorizeRequests()
+                .antMatchers(ADMIN_URL + "/**")
+                .hasAuthority(String.valueOf(UserRole.ADMIN))
+                .antMatchers(USER_URL + "/**")
+                .hasAuthority(String.valueOf(UserRole.USER))
+                .and()
+                .formLogin();
     }
 
     @Bean
