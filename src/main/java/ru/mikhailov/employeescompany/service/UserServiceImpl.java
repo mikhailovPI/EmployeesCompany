@@ -40,8 +40,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<UserGetDto> getAllUsers(Long userId, int from, int size) {
-        User user = validationUser(userId);
-        adminRole(user);
+        adminRole(validationUser(userId));
         PageRequestOverride pageRequest = PageRequestOverride.of(from, size);
         return userRepository.findAll(pageRequest)
                 .stream()
@@ -91,6 +90,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public UserDto updateUser(UserDto userDto) {
         User user = validationUser(userDto.getId());
         adminRole(user);
@@ -120,9 +120,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public void deleteUserById(Long userId, Long deleteUserId) {
-        User user = validationUser(userId);
-        adminRole(user);
+        adminRole(validationUser(userId));
         userRepository.deleteById(deleteUserId);
     }
 
@@ -139,7 +139,7 @@ public class UserServiceImpl implements UserService {
                 .forEachOrdered(role -> {
                     throw new ConflictingRequestException(
                             String.format("Пользователь не может выполнить данное действие, т.к. его роль %s",
-                                    UserRole.ADMIN));
+                                    UserRole.USER));
                 });
     }
 
@@ -150,7 +150,7 @@ public class UserServiceImpl implements UserService {
                 .forEachOrdered(role -> {
                     throw new ConflictingRequestException(
                             String.format("Пользователь не может выполнить данное действие, т.к. его роль %s",
-                                    UserRole.USER));
+                                    UserRole.ADMIN));
                 });
     }
 }

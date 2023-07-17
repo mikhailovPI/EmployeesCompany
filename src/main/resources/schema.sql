@@ -1,8 +1,8 @@
-drop table users_roles cascade;
+--drop table users_roles cascade;
 
-drop table roles cascade;
+--drop table roles cascade;
 
-drop table users cascade;
+--drop table users cascade;
 
 CREATE TABLE IF NOT EXISTS roles
 (
