@@ -130,6 +130,11 @@ public class UserServiceImpl implements UserService {
         userRepository.deleteById(deleteUserId);
     }
 
+    @Override
+    public User findByEmail(String email) {
+        return userRepository.findUserByEmail(email);
+    }
+
     private User validationUser(Long userId) {
         return userRepository.findById(userId)
                 .orElseThrow(() -> new NotFoundException(

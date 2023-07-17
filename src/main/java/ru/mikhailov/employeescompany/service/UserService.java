@@ -3,6 +3,7 @@ package ru.mikhailov.employeescompany.service;
 import ru.mikhailov.employeescompany.dto.UserDto;
 import ru.mikhailov.employeescompany.dto.UserGetDto;
 import ru.mikhailov.employeescompany.exception.ConflictingRequestException;
+import ru.mikhailov.employeescompany.model.User;
 
 import java.util.List;
 
@@ -17,5 +18,7 @@ public interface UserService {
     UserDto updateUser(Long adminId, UserDto userDto);
 
     void deleteUserById(Long userId, Long deleteUserId);
+
+    User findByEmail(String email);
 }
 
